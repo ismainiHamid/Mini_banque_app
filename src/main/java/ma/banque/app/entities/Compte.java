@@ -25,4 +25,7 @@ public class Compte {
 
     @OneToMany(mappedBy = "id.compte", fetch = FetchType.EAGER)
     private List<Operation> operations;
+
+    @ManyToOne
+    private Agence agence;
 }
