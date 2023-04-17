@@ -3,5 +3,5 @@ package ma.banque.app.entities;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Virement extends Operation{
+public class Virement extends Operation {
 }

@@ -16,18 +16,13 @@ public class ClientService implements IMetier<Client> {
 
     @Override
     public Client create(Client object) {
-        if(Objects.isNull(object)) return null;
+        if (Objects.isNull(object)) return null;
         return this.clientRepository.save(object);
     }
 
     @Override
     public void delete(Client object) {
         this.clientRepository.delete(object);
-    }
-
-    @Override
-    public Client findById(int id) {
-        return this.clientRepository.findById(id);
     }
 
     @Override

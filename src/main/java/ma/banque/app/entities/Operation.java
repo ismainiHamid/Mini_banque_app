@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Operation {
     @EmbeddedId
-    protected PrimaryKey id;
+    protected OperationPK id;
 
     @Column(nullable = false)
     protected String Nature;
@@ -29,7 +29,7 @@ public class Operation {
     @AllArgsConstructor
     @Getter(value = AccessLevel.PUBLIC)
     @Setter(value = AccessLevel.PUBLIC)
-    public static class PrimaryKey implements Serializable {
+    public static class OperationPK implements Serializable {
         private String code;
         @ManyToOne
         private Personne personne;
