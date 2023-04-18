@@ -7,8 +7,6 @@ import ma.banque.app.entities.Client;
 import ma.banque.app.entities.Compte;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 @Service
 @Transactional
 @AllArgsConstructor
@@ -18,38 +16,22 @@ public class BanqueService implements IMetierApp {
     private ClientService clientService;
 
     @Override
-    public Compte depotByNumeroCompte(Compte compte, double montant) {
+    public Compte depotByNumeroCompte(Compte compteCourant, double montant) {
         return null;
     }
 
     @Override
-    public Compte depotByCniCompte(Client client, double montant) {
-        if (!Objects.isNull(client)) {
-            Compte compte = this.clientService.findByCni(client.getCni()).getOperations().stream().map(c -> c.getId().getCompte()).findFirst().orElse(null);
-            if (!Objects.isNull(compte)) {
-                compte.setSolde(compte.getSolde() + montant);
-                return this.compteService.create(compte);
-            }
-        }
+    public Compte depotByCinClient(Client client, double montant) {
         return null;
     }
 
     @Override
-    public Compte retraitByNumeroCompte(Compte compte, double montant) {
+    public Compte retraitByNumeroCompte(Compte compteCourant, double montant) {
         return null;
     }
 
     @Override
-    public Compte retraitByNCniCompte(Client client, double montant) {
-        if (!Objects.isNull(client)) {
-            Compte compte = this.clientService.findByCni(client.getCni()).getOperations().stream().map(c -> c.getId().getCompte()).findFirst().orElse(null);
-            if (!Objects.isNull(compte)) {
-                if (compte.getSolde() <= montant) {
-                    compte.setSolde(compte.getSolde() - montant);
-                    return this.compteService.create(compte);
-                }
-            }
-        }
+    public Compte retraitByCinClient(Client client, double montant) {
         return null;
     }
 
@@ -59,7 +41,7 @@ public class BanqueService implements IMetierApp {
     }
 
     @Override
-    public boolean viremantBetweenClientByCni(Client clientEnvoie, Client clientRecoit, double montant) {
+    public boolean viremantBetweenClientByCin(Client clientEnvoie, Client clientRecoit, double montant) {
         return false;
     }
 }

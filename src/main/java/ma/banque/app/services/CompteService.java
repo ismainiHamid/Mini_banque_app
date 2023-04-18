@@ -2,7 +2,7 @@ package ma.banque.app.services;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import ma.banque.app.IMetier.IMetier;
+import ma.banque.app.IServices.ICompteService;
 import ma.banque.app.entities.Compte;
 import ma.banque.app.repository.CompteRepository;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.Objects;
 @Service
 @Transactional
 @AllArgsConstructor
-public class CompteService implements IMetier<Compte> {
+public class CompteService implements ICompteService {
     private CompteRepository compteRepository;
 
     @Override
@@ -30,5 +30,10 @@ public class CompteService implements IMetier<Compte> {
     @Override
     public List<Compte> findAll() {
         return this.compteRepository.findAll();
+    }
+
+    @Override
+    public Compte findByNumeroCompte(Long numeroCompte) {
+        return this.compteRepository.findByNumeroCompte(numeroCompte);
     }
 }

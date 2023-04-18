@@ -1,11 +1,9 @@
 package ma.banque.app.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "personnes")
@@ -17,30 +15,26 @@ import java.util.List;
 public class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    protected Integer id;
 
     @Column(nullable = false, unique = true, length = 10)
-    private String cni;
+    protected String cin;
 
     @Column(nullable = false, length = 50)
-    private String nom;
+    protected String nom;
 
     @Column(nullable = false, length = 50)
-    private String prenom;
+    protected String prenom;
 
     @Column(nullable = false, length = 200)
-    private String adresse;
+    protected String adresse;
 
     @Column(nullable = false, length = 100)
-    private String email;
+    protected String email;
 
     @Column(nullable = false, length = 14)
-    private String telephone;
+    protected String telephone;
 
     @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
-
-    @OneToMany(mappedBy = "id.personne", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private List<Operation> operations;
+    protected Date dateNaissance;
 }

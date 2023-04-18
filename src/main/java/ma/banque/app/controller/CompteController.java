@@ -1,6 +1,7 @@
 package ma.banque.app.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import ma.banque.app.entities.Compte;
 import ma.banque.app.services.CompteService;
@@ -28,5 +29,10 @@ public class CompteController {
     @GetMapping(value = "/read")
     public List<Compte> findAll() {
         return compteService.findAll();
+    }
+
+    @GetMapping(value = "")
+    public Compte findByNumeroCompte(@PathParam(value = "numeroCompte") Long numeroCompte) {
+        return compteService.findByNumeroCompte(numeroCompte);
     }
 }

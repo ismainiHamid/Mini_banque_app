@@ -33,7 +33,7 @@ public class ClientService implements IClientService {
     }
 
     @Override
-    public Client findByCni(String cni) {
-        return this.clientRepository.findByCni(cni);
+    public Client findByCin(String cin) {
+        return this.clientRepository.findByCin(cin);
     }
 }

@@ -32,7 +32,7 @@ public class ClientController {
     }
 
     @GetMapping(value = "")
-    public Client findByCni(@PathParam(value = "cni") String cni) {
-        return clientService.findByCni(cni);
+    public Client findByCin(@PathParam(value = "cin") String cin) {
+        return clientService.findByCin(cin);
     }
 }

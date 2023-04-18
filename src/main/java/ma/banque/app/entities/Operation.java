@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity
@@ -12,37 +11,25 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Operation {
-    @EmbeddedId
-    protected OperationPK id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
+
+    @Column(nullable = false, length = 10, unique = true)
+    protected String code;
 
     @Column(nullable = false)
     protected String Nature;
-
-    @Column(nullable = false, unique = true)
-    protected Long numero;
 
     @Column(nullable = false)
     protected double montant;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    protected Date date;
 
-    @Embeddable
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Getter(value = AccessLevel.PUBLIC)
-    @Setter(value = AccessLevel.PUBLIC)
-    public static class OperationPK implements Serializable {
-        private String code;
-
-        @ManyToOne
-        @JsonIgnore
-        private Personne personne;
-
-        @ManyToOne
-        @JsonIgnore
-        private Compte compte;
-    }
+    @ManyToOne
+    @JsonIgnore
+    protected Compte compte;
 }

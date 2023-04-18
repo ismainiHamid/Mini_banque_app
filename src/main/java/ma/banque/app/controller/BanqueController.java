@@ -18,33 +18,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class BanqueController {
     private BanqueService banqueService;
 
-    @PostMapping(value = "/depotByNumeroCompte")
-    public Compte depotByNumeroCompte(@RequestBody Compte compte, @PathParam(value = "montant") double montant) {
-        return banqueService.depotByNumeroCompte(compte, montant);
+    public Compte depotByNumeroCompte(Compte compteCourant, double montant) {
+        return banqueService.depotByNumeroCompte(compteCourant, montant);
     }
 
-    @PostMapping(value = "/depotByCniCompte")
-    public Compte depotByCniCompte(@RequestBody Client client, @PathParam(value = "montant") double montant) {
-        return banqueService.depotByCniCompte(client, montant);
+    public Compte depotByCinClient(Client client, double montant) {
+        return banqueService.depotByCinClient(client, montant);
     }
 
-    @PostMapping(value = "/retraitByNumeroCompte")
-    public Compte retraitByNumeroCompte(@RequestBody Compte compte, @PathParam(value = "montant") double montant) {
-        return banqueService.retraitByNumeroCompte(compte, montant);
+    public Compte retraitByNumeroCompte(Compte compteCourant, double montant) {
+        return banqueService.retraitByNumeroCompte(compteCourant, montant);
     }
 
-    @PostMapping(value = "/retraitByNCniCompte")
-    public Compte retraitByNCniCompte(@RequestBody Client client, @PathParam(value = "montant") double montant) {
-        return banqueService.retraitByNCniCompte(client, montant);
+    public Compte retraitByCinClient(Client client, double montant) {
+        return banqueService.retraitByCinClient(client, montant);
     }
 
-    @PostMapping(value = "/viremantBetweenClientByNumeroCompte")
-    public boolean viremantBetweenClientByNumeroCompte(@RequestBody Compte compteEnvoie, @RequestBody Compte compteRecoit, @PathParam(value = "montant") double montant) {
+    public boolean viremantBetweenClientByNumeroCompte(Compte compteEnvoie, Compte compteRecoit, double montant) {
         return banqueService.viremantBetweenClientByNumeroCompte(compteEnvoie, compteRecoit, montant);
     }
 
-    @PostMapping(value = "/viremantBetweenClientByCni")
-    public boolean viremantBetweenClientByCni(@RequestBody Client clientEnvoie, @RequestBody Client clientRecoit, @PathParam(value = "montant") double montant) {
-        return banqueService.viremantBetweenClientByCni(clientEnvoie, clientRecoit, montant);
+    public boolean viremantBetweenClientByCin(Client clientEnvoie, Client clientRecoit, double montant) {
+        return banqueService.viremantBetweenClientByCin(clientEnvoie, clientRecoit, montant);
     }
 }

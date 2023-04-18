@@ -16,19 +16,23 @@ import java.util.List;
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    protected Integer id;
 
     @Column(nullable = false)
-    private Long numeroCompte;
+    protected Long numeroCompte;
 
     @Column(nullable = false)
-    private double solde;
-
-    @OneToMany(mappedBy = "id.compte", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private List<Operation> operations;
+    protected double solde;
 
     @ManyToOne
     @JsonIgnore
-    private Agence agence;
+    protected Agence agence;
+
+    @ManyToOne
+    @JsonIgnore
+    protected Client client;
+
+    @OneToMany(mappedBy = "compte", fetch = FetchType.EAGER)
+    @JsonIgnore
+    protected List<Operation> operations;
 }
