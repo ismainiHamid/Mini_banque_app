@@ -1,5 +1,6 @@
 package ma.banque.app.services;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.banque.app.IMetier.IMetier;
 import ma.banque.app.entities.Compte;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class CompteService implements IMetier<Compte> {
     private CompteRepository compteRepository;

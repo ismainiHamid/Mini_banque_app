@@ -1,5 +1,6 @@
 package ma.banque.app.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import ma.banque.app.entities.Agence;
 import ma.banque.app.services.AgenceService;
@@ -7,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Agence")
 @RestController
-@RequestMapping(value = "/banque/agences")
+@RequestMapping(value = "/banque/agence")
 @AllArgsConstructor
 public class AgenceController {
     private AgenceService agenceService;
 
-    @RequestMapping(path = {"/create", "/update"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
     public Agence create(Agence object) {
         return agenceService.create(object);
     }

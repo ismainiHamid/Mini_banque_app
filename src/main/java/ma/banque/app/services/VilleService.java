@@ -1,6 +1,7 @@
 package ma.banque.app.services;
 
 import jakarta.persistence.Entity;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.banque.app.IMetier.IMetier;
 import ma.banque.app.entities.Ville;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class VilleService implements IMetier<Ville> {
     private VilleRepository villeRepository;
