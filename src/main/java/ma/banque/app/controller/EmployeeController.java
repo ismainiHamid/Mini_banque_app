@@ -16,12 +16,12 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Employee create(Employee object) {
+    public Employee create(@RequestBody Employee object) {
         return employeeService.create(object);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(Employee object) {
+    public void delete(@RequestBody Employee object) {
         employeeService.delete(object);
     }
 

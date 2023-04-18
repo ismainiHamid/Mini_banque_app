@@ -16,12 +16,12 @@ public class OperationController {
     private OperationService operationService;
 
     @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Operation create(Operation object) {
+    public Operation create(@RequestBody Operation object) {
         return operationService.create(object);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(Operation object) {
+    public void delete(@RequestBody Operation object) {
         operationService.delete(object);
     }
 

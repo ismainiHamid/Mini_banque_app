@@ -16,12 +16,12 @@ public class CompteController {
     private CompteService compteService;
 
     @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Compte create(Compte object) {
+    public Compte create(@RequestBody Compte object) {
         return compteService.create(object);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(Compte object) {
+    public void delete(@RequestBody Compte object) {
         compteService.delete(object);
     }
 

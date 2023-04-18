@@ -19,7 +19,7 @@ public class Personne {
     private Integer id;
 
     @Column(nullable = false, unique = true, length = 10)
-    private String cin;
+    private String cni;
 
     @Column(nullable = false, length = 50)
     private String nom;

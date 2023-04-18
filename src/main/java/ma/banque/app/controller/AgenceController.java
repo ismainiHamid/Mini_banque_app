@@ -16,12 +16,12 @@ public class AgenceController {
     private AgenceService agenceService;
 
     @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Agence create(Agence object) {
+    public Agence create(@RequestBody Agence object) {
         return agenceService.create(object);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(Agence object) {
+    public void delete(@RequestBody Agence object) {
         agenceService.delete(object);
     }
 

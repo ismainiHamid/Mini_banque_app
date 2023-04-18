@@ -16,12 +16,12 @@ public class VilleController {
     private VilleService villeService;
 
     @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Ville create(Ville object) {
+    public Ville create(@RequestBody Ville object) {
         return villeService.create(object);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(Ville object) {
+    public void delete(@RequestBody Ville object) {
         villeService.delete(object);
     }
 

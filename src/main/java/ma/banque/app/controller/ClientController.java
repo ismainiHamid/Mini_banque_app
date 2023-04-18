@@ -16,12 +16,12 @@ public class ClientController {
     private ClientService clientService;
 
     @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Client create(Client object) {
+    public Client create(@RequestBody Client object) {
         return clientService.create(object);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(Client object) {
+    public void delete(@RequestBody Client object) {
         clientService.delete(object);
     }
 
