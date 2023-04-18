@@ -1,5 +1,6 @@
 package ma.banque.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -40,5 +41,6 @@ public class Personne {
     private Date dateNaissance;
 
     @OneToMany(mappedBy = "id.personne", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Operation> operations;
 }

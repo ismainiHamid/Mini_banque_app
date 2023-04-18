@@ -1,5 +1,6 @@
 package ma.banque.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,8 +25,10 @@ public class Compte {
     private double solde;
 
     @OneToMany(mappedBy = "id.compte", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Operation> operations;
 
     @ManyToOne
+    @JsonIgnore
     private Agence agence;
 }

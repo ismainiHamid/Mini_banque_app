@@ -1,5 +1,6 @@
 package ma.banque.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,9 +32,13 @@ public class Operation {
     @Setter(value = AccessLevel.PUBLIC)
     public static class OperationPK implements Serializable {
         private String code;
+
         @ManyToOne
+        @JsonIgnore
         private Personne personne;
+
         @ManyToOne
+        @JsonIgnore
         private Compte compte;
     }
 }

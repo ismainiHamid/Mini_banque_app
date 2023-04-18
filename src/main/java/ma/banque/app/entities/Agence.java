@@ -1,5 +1,6 @@
 package ma.banque.app.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,8 +24,10 @@ public class Agence {
     private String adresse;
 
     @OneToMany(mappedBy = "agence", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Compte> comptes;
 
     @ManyToOne
+    @JsonIgnore
     private Ville ville;
 }
