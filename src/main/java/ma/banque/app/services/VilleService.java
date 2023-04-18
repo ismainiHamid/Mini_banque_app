@@ -1,6 +1,5 @@
 package ma.banque.app.services;
 
-import jakarta.persistence.Entity;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.banque.app.IMetier.IMetier;

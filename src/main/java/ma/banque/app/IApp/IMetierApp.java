@@ -4,15 +4,15 @@ import ma.banque.app.entities.Client;
 import ma.banque.app.entities.Compte;
 
 public interface IMetierApp {
-    public Compte depotByNumeroCompte(Compte compte, double montant);
+    Compte depotByNumeroCompte(Compte compte, double montant);
 
-    public Compte depotByCniCompte(Client client, double montant);
+    Compte depotByCniCompte(Client client, double montant);
 
-    public Compte retraitByNumeroCompte(Compte compte, double montant);
+    Compte retraitByNumeroCompte(Compte compte, double montant);
 
-    public Compte retraitByNCniCompte(Client client, double montant);
+    Compte retraitByNCniCompte(Client client, double montant);
 
-    public boolean viremantBetweenClientByNumeroCompte(Compte compteEnvoie, Compte compteRecoit, double montant);
+    boolean viremantBetweenClientByNumeroCompte(Compte compteEnvoie, Compte compteRecoit, double montant);
 
-    public boolean viremantBetweenClientByCni(Client clientEnvoie, Client clientRecoit, double montant);
+    boolean viremantBetweenClientByCni(Client clientEnvoie, Client clientRecoit, double montant);
 }
