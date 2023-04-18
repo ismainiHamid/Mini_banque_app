@@ -25,7 +25,7 @@ public class VilleController {
         villeService.delete(object);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/read")
     public List<Ville> findAll() {
         return villeService.findAll();
     }

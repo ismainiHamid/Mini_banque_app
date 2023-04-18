@@ -25,7 +25,7 @@ public class EmployeeController {
         employeeService.delete(object);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/read")
     public List<Employee> findAll() {
         return employeeService.findAll();
     }

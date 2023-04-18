@@ -25,7 +25,7 @@ public class AgenceController {
         agenceService.delete(object);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/read")
     public List<Agence> findAll() {
         return agenceService.findAll();
     }

@@ -25,7 +25,7 @@ public class OperationController {
         operationService.delete(object);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/read")
     public List<Operation> findAll() {
         return operationService.findAll();
     }

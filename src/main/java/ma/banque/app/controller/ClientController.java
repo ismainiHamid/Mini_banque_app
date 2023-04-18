@@ -1,6 +1,7 @@
 package ma.banque.app.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import ma.banque.app.entities.Client;
 import ma.banque.app.services.ClientService;
@@ -25,8 +26,13 @@ public class ClientController {
         clientService.delete(object);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/read")
     public List<Client> findAll() {
         return clientService.findAll();
+    }
+
+    @GetMapping(value = "")
+    public Client findByCni(@PathParam(value = "cni") String cni) {
+        return clientService.findByCni(cni);
     }
 }

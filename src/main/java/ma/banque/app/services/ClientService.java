@@ -3,6 +3,7 @@ package ma.banque.app.services;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.banque.app.IMetier.IMetier;
+import ma.banque.app.IServices.IClientService;
 import ma.banque.app.entities.Client;
 import ma.banque.app.repository.ClientRepository;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Objects;
 @Service
 @Transactional
 @AllArgsConstructor
-public class ClientService implements IMetier<Client> {
+public class ClientService implements IClientService {
     private ClientRepository clientRepository;
 
     @Override
@@ -30,5 +31,10 @@ public class ClientService implements IMetier<Client> {
     @Override
     public List<Client> findAll() {
         return this.clientRepository.findAll();
+    }
+
+    @Override
+    public Client findByCni(String cni) {
+        return this.clientRepository.findByCni(cni);
     }
 }

@@ -1,8 +1,13 @@
 package ma.banque.app.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
+import ma.banque.app.entities.Client;
+import ma.banque.app.entities.Compte;
 import ma.banque.app.services.BanqueService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,27 +18,33 @@ import org.springframework.web.bind.annotation.RestController;
 public class BanqueController {
     private BanqueService banqueService;
 
-    public boolean depotByNumeroCompte(Long numero, double montant) {
-        return banqueService.depotByNumeroCompte(numero, montant);
+    @PostMapping(value = "/depotByNumeroCompte")
+    public Compte depotByNumeroCompte(@RequestBody Compte compte, @PathParam(value = "montant") double montant) {
+        return banqueService.depotByNumeroCompte(compte, montant);
     }
 
-    public boolean retraitByNumeroCompte(Long numero, double montant) {
-        return banqueService.retraitByNumeroCompte(numero, montant);
+    @PostMapping(value = "/depotByCniCompte")
+    public Compte depotByCniCompte(@RequestBody Client client, @PathParam(value = "montant") double montant) {
+        return banqueService.depotByCniCompte(client, montant);
     }
 
-    public boolean depotByCniCompte(String cni, double montant) {
-        return banqueService.depotByCniCompte(cni, montant);
+    @PostMapping(value = "/retraitByNumeroCompte")
+    public Compte retraitByNumeroCompte(@RequestBody Compte compte, @PathParam(value = "montant") double montant) {
+        return banqueService.retraitByNumeroCompte(compte, montant);
     }
 
-    public boolean retraitByNCniCompte(String cni, double montant) {
-        return banqueService.retraitByNCniCompte(cni, montant);
+    @PostMapping(value = "/retraitByNCniCompte")
+    public Compte retraitByNCniCompte(@RequestBody Client client, @PathParam(value = "montant") double montant) {
+        return banqueService.retraitByNCniCompte(client, montant);
     }
 
-    public boolean viremantBetweenClientByNumeroCompte(Long numero_1, Long numero_2, double montant) {
-        return banqueService.viremantBetweenClientByNumeroCompte(numero_1, numero_2, montant);
+    @PostMapping(value = "/viremantBetweenClientByNumeroCompte")
+    public boolean viremantBetweenClientByNumeroCompte(@RequestBody Compte compteEnvoie, @RequestBody Compte compteRecoit, @PathParam(value = "montant") double montant) {
+        return banqueService.viremantBetweenClientByNumeroCompte(compteEnvoie, compteRecoit, montant);
     }
 
-    public boolean viremantBetweenClientByNumeroCni(String cni_1, String cni_2, double montant) {
-        return banqueService.viremantBetweenClientByNumeroCni(cni_1, cni_2, montant);
+    @PostMapping(value = "/viremantBetweenClientByCni")
+    public boolean viremantBetweenClientByCni(@RequestBody Client clientEnvoie, @RequestBody Client clientRecoit, @PathParam(value = "montant") double montant) {
+        return banqueService.viremantBetweenClientByCni(clientEnvoie, clientRecoit, montant);
     }
 }

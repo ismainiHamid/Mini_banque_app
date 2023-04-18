@@ -25,7 +25,7 @@ public class CompteController {
         compteService.delete(object);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/read")
     public List<Compte> findAll() {
         return compteService.findAll();
     }
