@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
@@ -24,6 +25,9 @@ public class Operation {
 
     @Column(nullable = false)
     protected double montant;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
     @Embeddable
     @NoArgsConstructor
