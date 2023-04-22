@@ -2,12 +2,14 @@ package ma.banque.app.entity;
 
 import jakarta.persistence.Entity;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class CompteCourant extends Compte {
 
     @Builder

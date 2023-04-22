@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode(callSuper = true)
 public class CompteEpargne extends Compte {
     @Column(nullable = false)
     private boolean status;

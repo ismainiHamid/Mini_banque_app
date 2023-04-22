@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Compte {
     @Id

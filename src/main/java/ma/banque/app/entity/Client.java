@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode(callSuper = true)
 public class Client extends Personne {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     @JsonIgnore

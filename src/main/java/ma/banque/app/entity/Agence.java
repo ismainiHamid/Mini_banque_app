@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode
 public class Agence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

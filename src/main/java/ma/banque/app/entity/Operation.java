@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Operation {
     @Id

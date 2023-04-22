@@ -10,7 +10,7 @@ import java.util.List;
 
 @Tag(name = "Agences")
 @RestController
-@RequestMapping(value = "/banque/agence")
+@RequestMapping(value = "/banque/agences")
 @AllArgsConstructor
 public class AgenceController {
     private AgenceService agenceService;

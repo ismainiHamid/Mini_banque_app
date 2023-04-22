@@ -12,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode(callSuper = true)
 public class Employee extends Personne {
     @Column(nullable = false, length = 10)
     private String matricule;

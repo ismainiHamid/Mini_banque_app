@@ -11,6 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
+@EqualsAndHashCode
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Personne {
     @Id
