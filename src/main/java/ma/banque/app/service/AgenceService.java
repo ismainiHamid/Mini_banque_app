@@ -17,21 +17,21 @@ public class AgenceService implements IAgence {
     private AgenceRepository agenceRepository;
 
     @Override
-    public Agence create(Agence agence) {
-        if (Objects.isNull(agence)) return null;
-        return this.agenceRepository.save(agence);
+    public Agence create(Agence object) {
+        if (Objects.isNull(object)) return null;
+        return this.agenceRepository.save(object);
     }
 
     @Override
-    public Agence Update(Agence agence) {
-        if (Objects.isNull(agence)) return null;
-        return this.agenceRepository.save(agence);
+    public Agence Update(Agence object) {
+        if (Objects.isNull(object)) return null;
+        return this.agenceRepository.save(object);
     }
 
     @Override
-    public boolean delete(Agence agence) {
-        if (Objects.isNull(agence)) return false;
-        this.agenceRepository.delete(agence);
+    public boolean delete(Agence object) {
+        if (Objects.isNull(object)) return false;
+        this.agenceRepository.delete(object);
         return true;
     }
 

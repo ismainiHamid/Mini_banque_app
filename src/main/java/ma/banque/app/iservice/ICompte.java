@@ -1,18 +1,8 @@
 package ma.banque.app.iservice;
 
-import ma.banque.app.entity.Agence;
 import ma.banque.app.entity.Compte;
+import ma.banque.app.imetier.IMetier;
 
-import java.util.List;
-
-public interface ICompte {
-    Compte create(Compte compte);
-
-    Compte Update(Compte compte);
-
-    boolean delete(Compte compte);
-
-    List<Compte> findAll();
-
+public interface ICompte extends IMetier<Compte> {
     Compte findByNumeroCompte(String numeroCompte);
 }

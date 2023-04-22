@@ -17,21 +17,21 @@ public class VilleService implements IVille {
     private VilleRepository villeRepository;
 
     @Override
-    public Ville create(Ville ville) {
-        if (Objects.isNull(ville)) return null;
-        return this.villeRepository.save(ville);
+    public Ville create(Ville object) {
+        if (Objects.isNull(object)) return null;
+        return this.villeRepository.save(object);
     }
 
     @Override
-    public Ville Update(Ville ville) {
-        if (Objects.isNull(ville)) return null;
-        return this.villeRepository.save(ville);
+    public Ville Update(Ville object) {
+        if (Objects.isNull(object)) return null;
+        return this.villeRepository.save(object);
     }
 
     @Override
-    public boolean delete(Ville ville) {
-        if (Objects.isNull(ville)) return false;
-        this.villeRepository.delete(ville);
+    public boolean delete(Ville object) {
+        if (Objects.isNull(object)) return false;
+        this.villeRepository.delete(object);
         return true;
     }
 

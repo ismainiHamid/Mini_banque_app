@@ -17,21 +17,21 @@ public class ClientService implements IClient {
     private ClientRepository clientRepository;
 
     @Override
-    public Client create(Client client) {
-        if (Objects.isNull(client)) return null;
-        return this.clientRepository.save(client);
+    public Client create(Client object) {
+        if (Objects.isNull(object)) return null;
+        return this.clientRepository.save(object);
     }
 
     @Override
-    public Client Update(Client client) {
-        if (Objects.isNull(client)) return null;
-        return this.clientRepository.save(client);
+    public Client Update(Client object) {
+        if (Objects.isNull(object)) return null;
+        return this.clientRepository.save(object);
     }
 
     @Override
-    public boolean delete(Client client) {
-        if (Objects.isNull(client)) return false;
-        this.clientRepository.delete(client);
+    public boolean delete(Client object) {
+        if (Objects.isNull(object)) return false;
+        this.clientRepository.delete(object);
         return true;
     }
 

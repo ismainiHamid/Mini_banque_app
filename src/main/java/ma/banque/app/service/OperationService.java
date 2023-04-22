@@ -17,21 +17,21 @@ public class OperationService implements IOperation {
     private OperationRepository operationRepository;
 
     @Override
-    public Operation create(Operation operation) {
-        if (Objects.isNull(operation)) return null;
-        return this.operationRepository.save(operation);
+    public Operation create(Operation object) {
+        if (Objects.isNull(object)) return null;
+        return this.operationRepository.save(object);
     }
 
     @Override
-    public Operation Update(Operation operation) {
-        if (Objects.isNull(operation)) return null;
-        return this.operationRepository.save(operation);
+    public Operation Update(Operation object) {
+        if (Objects.isNull(object)) return null;
+        return this.operationRepository.save(object);
     }
 
     @Override
-    public boolean delete(Operation operation) {
-        if (Objects.isNull(operation)) return false;
-        this.operationRepository.delete(operation);
+    public boolean delete(Operation object) {
+        if (Objects.isNull(object)) return false;
+        this.operationRepository.delete(object);
         return true;
     }
 

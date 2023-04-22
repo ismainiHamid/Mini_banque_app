@@ -1,18 +1,8 @@
 package ma.banque.app.iservice;
 
-import ma.banque.app.entity.Agence;
 import ma.banque.app.entity.Client;
+import ma.banque.app.imetier.IMetier;
 
-import java.util.List;
-
-public interface IClient {
-    Client create(Client client);
-
-    Client Update(Client client);
-
-    boolean delete(Client client);
-
-    List<Client> findAll();
-
+public interface IClient extends IMetier<Client> {
     Client findByCin(String cin);
 }

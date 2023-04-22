@@ -16,17 +16,17 @@ public class UtilisateurService implements IUtilisateur {
     private UtilisateurRepository utilisateurRepository;
 
     @Override
-    public Utilisateur create(Utilisateur utilisateur) {
+    public Utilisateur create(Utilisateur object) {
         return null;
     }
 
     @Override
-    public Utilisateur Update(Utilisateur utilisateur) {
+    public Utilisateur Update(Utilisateur object) {
         return null;
     }
 
     @Override
-    public boolean delete(Utilisateur utilisateur) {
+    public boolean delete(Utilisateur object) {
         return false;
     }
 

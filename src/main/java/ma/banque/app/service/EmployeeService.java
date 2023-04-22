@@ -17,21 +17,21 @@ public class EmployeeService implements IEmployee {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public Employee create(Employee employee) {
-        if (Objects.isNull(employee)) return null;
-        return this.employeeRepository.save(employee);
+    public Employee create(Employee object) {
+        if (Objects.isNull(object)) return null;
+        return this.employeeRepository.save(object);
     }
 
     @Override
-    public Employee Update(Employee employee) {
-        if (Objects.isNull(employee)) return null;
-        return this.employeeRepository.save(employee);
+    public Employee Update(Employee object) {
+        if (Objects.isNull(object)) return null;
+        return this.employeeRepository.save(object);
     }
 
     @Override
-    public boolean delete(Employee employee) {
-        if (Objects.isNull(employee)) return false;
-        this.employeeRepository.delete(employee);
+    public boolean delete(Employee object) {
+        if (Objects.isNull(object)) return false;
+        this.employeeRepository.delete(object);
         return true;
     }
 
