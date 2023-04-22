@@ -23,6 +23,12 @@ public class OperationService implements IOperation {
     }
 
     @Override
+    public Operation Update(Operation operation) {
+        if (Objects.isNull(operation)) return null;
+        return this.operationRepository.save(operation);
+    }
+
+    @Override
     public boolean delete(Operation operation) {
         if (Objects.isNull(operation)) return false;
         this.operationRepository.delete(operation);

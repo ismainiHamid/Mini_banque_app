@@ -23,6 +23,12 @@ public class AgenceService implements IAgence {
     }
 
     @Override
+    public Agence Update(Agence agence) {
+        if (Objects.isNull(agence)) return null;
+        return this.agenceRepository.save(agence);
+    }
+
+    @Override
     public boolean delete(Agence agence) {
         if (Objects.isNull(agence)) return false;
         this.agenceRepository.delete(agence);

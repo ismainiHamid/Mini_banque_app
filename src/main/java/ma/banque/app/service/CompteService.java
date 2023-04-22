@@ -33,6 +33,12 @@ public class CompteService implements ICompte {
     }
 
     @Override
+    public Compte Update(Compte compte) {
+        if (Objects.isNull(compte)) return null;
+        return this.compteRepository.save(compte);
+    }
+
+    @Override
     public boolean delete(Compte compte) {
         if (Objects.isNull(compte)) return false;
         this.compteRepository.delete(compte);

@@ -16,9 +16,14 @@ import java.util.List;
 public class CompteController {
     private CompteService compteService;
 
-    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @PostMapping(value = "/create")
     public Compte create(@RequestBody Compte compte) {
         return compteService.create(compte);
+    }
+
+    @PutMapping(value = "/update")
+    public Compte Update(@RequestBody Compte compte) {
+        return compteService.Update(compte);
     }
 
     @DeleteMapping(value = "/delete")

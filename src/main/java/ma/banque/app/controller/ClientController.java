@@ -16,9 +16,14 @@ import java.util.List;
 public class ClientController {
     private ClientService clientService;
 
-    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public ma.banque.app.entity.Client create(@RequestBody Client client) {
+    @PostMapping(value = "/create")
+    public Client create(@RequestBody Client client) {
         return clientService.create(client);
+    }
+
+    @PutMapping(value = "/update")
+    public Client Update(@RequestBody Client client) {
+        return clientService.Update(client);
     }
 
     @DeleteMapping(value = "/delete")

@@ -15,9 +15,14 @@ import java.util.List;
 public class VilleController {
     private VilleService villeService;
 
-    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @PostMapping(value = "/create")
     public Ville create(@RequestBody Ville ville) {
         return villeService.create(ville);
+    }
+
+    @PutMapping(value = "/update")
+    public Ville Update(@RequestBody Ville ville) {
+        return villeService.Update(ville);
     }
 
     @DeleteMapping(value = "/delete")

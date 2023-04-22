@@ -15,9 +15,14 @@ import java.util.List;
 public class AgenceController {
     private AgenceService agenceService;
 
-    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @PostMapping(value = "/create")
     public Agence create(@RequestBody Agence agence) {
         return agenceService.create(agence);
+    }
+
+    @PutMapping(value = "/update")
+    public Agence Update(@RequestBody Agence agence) {
+        return agenceService.Update(agence);
     }
 
     @DeleteMapping(value = "/delete")

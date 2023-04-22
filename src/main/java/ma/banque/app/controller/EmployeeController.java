@@ -15,9 +15,14 @@ import java.util.List;
 public class EmployeeController {
     private EmployeeService employeeService;
 
-    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @PostMapping(value = "/create")
     public Employee create(@RequestBody Employee employee) {
         return employeeService.create(employee);
+    }
+
+    @PutMapping(value = "/update")
+    public Employee Update(@RequestBody Employee employee) {
+        return employeeService.Update(employee);
     }
 
     @DeleteMapping(value = "/delete")

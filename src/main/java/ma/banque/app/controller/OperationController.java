@@ -15,9 +15,14 @@ import java.util.List;
 public class OperationController {
     private OperationService operationService;
 
-    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    @PostMapping(value = "/create")
     public Operation create(@RequestBody Operation operation) {
         return operationService.create(operation);
+    }
+
+    @PutMapping(value = "/update")
+    public Operation Update(@RequestBody Operation operation) {
+        return operationService.Update(operation);
     }
 
     @DeleteMapping(value = "/delete")

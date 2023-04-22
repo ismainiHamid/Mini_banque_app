@@ -23,6 +23,12 @@ public class VilleService implements IVille {
     }
 
     @Override
+    public Ville Update(Ville ville) {
+        if (Objects.isNull(ville)) return null;
+        return this.villeRepository.save(ville);
+    }
+
+    @Override
     public boolean delete(Ville ville) {
         if (Objects.isNull(ville)) return false;
         this.villeRepository.delete(ville);

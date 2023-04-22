@@ -23,6 +23,12 @@ public class EmployeeService implements IEmployee {
     }
 
     @Override
+    public Employee Update(Employee employee) {
+        if (Objects.isNull(employee)) return null;
+        return this.employeeRepository.save(employee);
+    }
+
+    @Override
     public boolean delete(Employee employee) {
         if (Objects.isNull(employee)) return false;
         this.employeeRepository.delete(employee);
