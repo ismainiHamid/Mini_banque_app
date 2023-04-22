@@ -3,8 +3,8 @@ package ma.banque.app.controller;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
-import ma.banque.app.entities.Compte;
-import ma.banque.app.services.CompteService;
+import ma.banque.app.entity.Compte;
+import ma.banque.app.service.CompteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

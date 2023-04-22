@@ -1,4 +1,4 @@
-package ma.banque.app.entities;
+package ma.banque.app.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -7,12 +7,12 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "agences")
+@Table(name = "villes")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
-public class Agence {
+public class Ville {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,14 +20,10 @@ public class Agence {
     @Column(nullable = false)
     private int code;
 
-    @Column(nullable = false, length = 100)
-    private String adresse;
+    @Column(nullable = false, length = 50)
+    private String nom;
 
-    @OneToMany(mappedBy = "agence", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "ville", fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<Compte> comptes;
-
-    @ManyToOne
-    @JsonIgnore
-    private Ville ville;
+    private List<Agence> agences;
 }

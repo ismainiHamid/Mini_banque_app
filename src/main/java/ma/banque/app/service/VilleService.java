@@ -1,9 +1,9 @@
-package ma.banque.app.services;
+package ma.banque.app.service;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import ma.banque.app.iservices.IVille;
-import ma.banque.app.entities.Ville;
+import ma.banque.app.iservice.IVille;
+import ma.banque.app.entity.Ville;
 import ma.banque.app.repository.VilleRepository;
 import org.springframework.stereotype.Service;
 

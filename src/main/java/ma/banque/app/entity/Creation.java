@@ -1,4 +1,4 @@
-package ma.banque.app.entities;
+package ma.banque.app.entity;
 
 import jakarta.persistence.Entity;
 import lombok.Builder;
@@ -8,9 +8,9 @@ import java.util.Date;
 
 @Entity
 @NoArgsConstructor
-public class Virement extends Operation {
+public class Creation extends Operation {
     @Builder
-    public Virement(Integer id, String code, double montant, Date date, Compte compte) {
+    public Creation(Integer id, String code, double montant, Date date, Compte compte) {
         super(id, code, montant, date, compte);
     }
 }

@@ -1,6 +1,6 @@
-package ma.banque.app.iservices;
+package ma.banque.app.iservice;
 
-import ma.banque.app.entities.Compte;
+import ma.banque.app.entity.Compte;
 
 import java.util.List;
 

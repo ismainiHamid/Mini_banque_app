@@ -3,8 +3,8 @@ package ma.banque.app.controller;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
-import ma.banque.app.entities.Client;
-import ma.banque.app.services.ClientService;
+import ma.banque.app.entity.Client;
+import ma.banque.app.service.ClientService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class ClientController {
     private ClientService clientService;
 
     @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public ma.banque.app.entities.Client create(@RequestBody Client client) {
+    public ma.banque.app.entity.Client create(@RequestBody Client client) {
         return clientService.create(client);
     }
 

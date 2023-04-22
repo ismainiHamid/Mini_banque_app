@@ -2,8 +2,8 @@ package ma.banque.app.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import ma.banque.app.entities.Agence;
-import ma.banque.app.services.AgenceService;
+import ma.banque.app.entity.Agence;
+import ma.banque.app.service.AgenceService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
