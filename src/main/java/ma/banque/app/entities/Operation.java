@@ -7,6 +7,7 @@ import lombok.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "Operations")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
@@ -19,9 +20,6 @@ public class Operation {
 
     @Column(nullable = false, length = 10, unique = true)
     protected String code;
-
-    @Column(nullable = false)
-    protected String Nature;
 
     @Column(nullable = false)
     protected double montant;

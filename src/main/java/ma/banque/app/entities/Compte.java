@@ -12,14 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 
-    @Column(nullable = false)
-    protected Long numeroCompte;
+    @Column(nullable = false, unique = true)
+    protected String numeroCompte;
 
     @Column(nullable = false)
     protected double solde;

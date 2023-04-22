@@ -2,7 +2,7 @@ package ma.banque.app.services;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import ma.banque.app.IMetier.IMetier;
+import ma.banque.app.IServices.IVille;
 import ma.banque.app.entities.Ville;
 import ma.banque.app.repository.VilleRepository;
 import org.springframework.stereotype.Service;
@@ -13,18 +13,20 @@ import java.util.Objects;
 @Service
 @Transactional
 @AllArgsConstructor
-public class VilleService implements IMetier<Ville> {
+public class VilleService implements IVille {
     private VilleRepository villeRepository;
 
     @Override
-    public Ville create(Ville object) {
-        if (Objects.isNull(object)) return null;
-        return this.villeRepository.save(object);
+    public Ville create(Ville ville) {
+        if (Objects.isNull(ville)) return null;
+        return this.villeRepository.save(ville);
     }
 
     @Override
-    public void delete(Ville object) {
-        this.villeRepository.delete(object);
+    public boolean delete(Ville ville) {
+        if (Objects.isNull(ville)) return false;
+        this.villeRepository.delete(ville);
+        return true;
     }
 
     @Override

@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Compte")
+@Tag(name = "Comptes")
 @RestController
-@RequestMapping(value = "/banque/compte")
+@RequestMapping(value = "/banque/comptes")
 @AllArgsConstructor
 public class CompteController {
     private CompteService compteService;
 
-    @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Compte create(@RequestBody Compte object) {
-        return compteService.create(object);
+    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    public Compte create(@RequestBody Compte compte) {
+        return compteService.create(compte);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(@RequestBody Compte object) {
-        compteService.delete(object);
+    public boolean delete(@RequestBody Compte compte) {
+        return compteService.delete(compte);
     }
 
     @GetMapping(value = "/read")
@@ -31,8 +31,8 @@ public class CompteController {
         return compteService.findAll();
     }
 
-    @GetMapping(value = "")
-    public Compte findByNumeroCompte(@PathParam(value = "numeroCompte") Long numeroCompte) {
+    @GetMapping
+    public Compte findByNumeroCompte(@PathParam(value = "numeroCompte") String numeroCompte) {
         return compteService.findByNumeroCompte(numeroCompte);
     }
 }

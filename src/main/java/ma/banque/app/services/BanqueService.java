@@ -2,37 +2,41 @@ package ma.banque.app.services;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import ma.banque.app.IApp.IMetierApp;
-import ma.banque.app.entities.Client;
-import ma.banque.app.entities.Compte;
+import ma.banque.app.IServices.IBanque;
+import ma.banque.app.entities.*;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 @Service
 @Transactional
 @AllArgsConstructor
-public class BanqueService implements IMetierApp {
+public class BanqueService implements IBanque {
     private CompteService compteService;
     private OperationService operationService;
     private ClientService clientService;
 
+
     @Override
-    public Compte depotByNumeroCompte(Compte compteCourant, double montant) {
-        return null;
+    public boolean depotByNumeroCompte(Compte compteCourant, double montant) {
+        return false;
     }
 
     @Override
-    public Compte depotByCinClient(Client client, double montant) {
-        return null;
+    public boolean depotByCinClient(Client client, double montant) {
+        return false;
     }
 
     @Override
-    public Compte retraitByNumeroCompte(Compte compteCourant, double montant) {
-        return null;
+    public boolean retraitByNumeroCompte(Compte compteCourant, double montant) {
+        return false;
     }
 
     @Override
-    public Compte retraitByCinClient(Client client, double montant) {
-        return null;
+    public boolean retraitByCinClient(Client client, double montant) {
+        return false;
     }
 
     @Override

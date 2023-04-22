@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Agence")
+@Tag(name = "Agences")
 @RestController
 @RequestMapping(value = "/banque/agence")
 @AllArgsConstructor
 public class AgenceController {
     private AgenceService agenceService;
 
-    @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Agence create(@RequestBody Agence object) {
-        return agenceService.create(object);
+    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    public Agence create(@RequestBody Agence agence) {
+        return agenceService.create(agence);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(@RequestBody Agence object) {
-        agenceService.delete(object);
+    public boolean delete(@RequestBody Agence agence) {
+        return agenceService.delete(agence);
     }
 
     @GetMapping(value = "/read")

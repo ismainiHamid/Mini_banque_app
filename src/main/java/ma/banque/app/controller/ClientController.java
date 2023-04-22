@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Client")
+@Tag(name = "Clients")
 @RestController
-@RequestMapping(value = "/banque/client")
+@RequestMapping(value = "/banque/clients")
 @AllArgsConstructor
 public class ClientController {
     private ClientService clientService;
 
-    @RequestMapping(path = {"/SaveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
-    public Client create(@RequestBody Client object) {
-        return clientService.create(object);
+    @RequestMapping(path = {"/saveRecord"}, method = {RequestMethod.POST, RequestMethod.PUT})
+    public ma.banque.app.entities.Client create(@RequestBody Client client) {
+        return clientService.create(client);
     }
 
     @DeleteMapping(value = "/delete")
-    public void delete(@RequestBody Client object) {
-        clientService.delete(object);
+    public boolean delete(@RequestBody Client client) {
+        return clientService.delete(client);
     }
 
     @GetMapping(value = "/read")
@@ -31,7 +31,7 @@ public class ClientController {
         return clientService.findAll();
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     public Client findByCin(@PathParam(value = "cin") String cin) {
         return clientService.findByCin(cin);
     }

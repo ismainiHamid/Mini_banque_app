@@ -8,9 +8,9 @@ import java.util.Date;
 
 @Entity
 @NoArgsConstructor
-public class Depot extends Operation {
+public class Creation extends Operation {
     @Builder
-    public Depot(Integer id, String code, double montant, Date date, Compte compte) {
+    public Creation(Integer id, String code, double montant, Date date, Compte compte) {
         super(id, code, montant, date, compte);
     }
 }
