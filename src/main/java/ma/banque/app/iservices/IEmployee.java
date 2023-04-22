@@ -1,4 +1,4 @@
-package ma.banque.app.IServices;
+package ma.banque.app.iservices;
 
 import ma.banque.app.entities.Employee;
 

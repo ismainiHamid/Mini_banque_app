@@ -2,7 +2,7 @@ package ma.banque.app.services;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import ma.banque.app.IServices.IClient;
+import ma.banque.app.iservices.IClient;
 import ma.banque.app.entities.Client;
 import ma.banque.app.repository.ClientRepository;
 import org.springframework.stereotype.Service;
