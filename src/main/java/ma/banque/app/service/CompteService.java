@@ -4,11 +4,9 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.banque.app.iservice.ICompte;
 import ma.banque.app.entity.Compte;
-import ma.banque.app.entity.Creation;
 import ma.banque.app.repository.CompteRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,18 +15,10 @@ import java.util.Objects;
 @AllArgsConstructor
 public class CompteService implements ICompte {
     private CompteRepository compteRepository;
-    private OperationService operationService;
 
     @Override
     public Compte create(Compte object) {
         if (Objects.isNull(object)) return null;
-        this.operationService.create(Creation.builder()
-                .code("")
-                .montant(0)
-                .date(new Date())
-                .compte(object)
-                .build()
-        );
         return this.compteRepository.save(object);
     }
 

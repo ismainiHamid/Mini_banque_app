@@ -17,7 +17,24 @@ public class BanqueService implements IBanque {
     private CompteService compteService;
     private OperationService operationService;
     private ClientService clientService;
+    private AgenceService agenceService;
 
+    @Override
+    public Compte createCompte(Client client, Agence agence) {
+        return this.operationService.create(Creation.builder()
+                .code("")
+                .date(new Date())
+                .montant(0)
+                .compte(this.compteService.create(CompteCourant.builder()
+                        .numeroCompte("")
+                        .solde(0)
+                        .agence(agence)
+                        .client(this.clientService.create(client))
+                        .build()
+                ))
+                .build()
+        ).getCompte();
+    }
 
     @Override
     public boolean depotByNumeroCompte(Compte compteCourant, double montant) {

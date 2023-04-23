@@ -3,6 +3,7 @@ package ma.banque.app.controller;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
+import ma.banque.app.entity.Agence;
 import ma.banque.app.entity.Client;
 import ma.banque.app.entity.Compte;
 import ma.banque.app.service.BanqueService;
@@ -17,6 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class BanqueController {
     private BanqueService banqueService;
+
+    @PostMapping(value = "/createCompte")
+    public Compte createCompte(Client client, Agence agence) {
+        return banqueService.createCompte(client, agence);
+    }
 
     @PostMapping(value = "/depotByNumeroCompte")
     public boolean depotByNumeroCompte(@RequestBody Compte compteCourant, @PathParam(value = "montant") double montant) {

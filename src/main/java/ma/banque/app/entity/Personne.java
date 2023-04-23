@@ -2,6 +2,7 @@ package ma.banque.app.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -36,6 +37,7 @@ public class Personne {
     @Column(nullable = false, length = 14)
     protected String telephone;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     protected Date dateNaissance;
 }
