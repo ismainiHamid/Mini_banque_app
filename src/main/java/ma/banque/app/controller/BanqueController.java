@@ -6,11 +6,11 @@ import lombok.AllArgsConstructor;
 import ma.banque.app.entity.Agence;
 import ma.banque.app.entity.Client;
 import ma.banque.app.entity.Compte;
+import ma.banque.app.entity.Operation;
 import ma.banque.app.service.BanqueService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Tag(name = "Banque")
 @RestController
@@ -42,6 +42,16 @@ public class BanqueController {
     @PostMapping(value = "/retraitByCinClient")
     public boolean retraitByCinClient(@RequestBody Client client, @PathParam(value = "montant") double montant) {
         return banqueService.retraitByCinClient(client, montant);
+    }
+
+    @GetMapping(value = "/getSoldeByCompte")
+    public double getSoldeByCompte(@PathParam(value = "numeroCompte") String numeroCompte) {
+        return banqueService.getSoldeByCompte(numeroCompte);
+    }
+
+    @GetMapping(value = "/getOperationsByClient")
+    public List<Operation> getOperationsByClient(@RequestBody Client client) {
+        return banqueService.getOperationsByClient(client);
     }
 
     @PostMapping(value = "/viremantBetweenClientByNumeroCompte")

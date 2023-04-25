@@ -3,9 +3,16 @@ package ma.banque.app.iservice;
 import ma.banque.app.entity.Agence;
 import ma.banque.app.entity.Client;
 import ma.banque.app.entity.Compte;
+import ma.banque.app.entity.Operation;
+
+import java.util.List;
 
 public interface IBanque {
     Compte createCompte(Client client, Agence agence);
+
+    List<Operation> getOperationsByClient(Client client);
+
+    double getSoldeByCompte(String numeroCompte);
 
     boolean depotByNumeroCompte(Compte compteCourant, double montant);
 

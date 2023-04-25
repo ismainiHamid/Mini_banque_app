@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -34,6 +35,17 @@ public class BanqueService implements IBanque {
                 ))
                 .build()
         ).getCompte();
+    }
+
+    @Override
+    public List<Operation> getOperationsByClient(Client client) {
+        if (Objects.isNull(client)) return null;
+        return this.clientService.findByCin(client.getCin()).getCompte().stream().filter(c -> c instanceof CompteCourant).map(Compte::getOperations).findFirst().orElse(null);
+    }
+
+    @Override
+    public double getSoldeByCompte(String numeroCompte) {
+        return this.compteService.findByNumeroCompte(numeroCompte).getSolde();
     }
 
     @Override
@@ -120,11 +132,21 @@ public class BanqueService implements IBanque {
 
     @Override
     public boolean viremantBetweenClientByNumeroCompte(Compte compteEnvoie, Compte compteRecoit, double montant) {
+        if (!Objects.isNull(compteEnvoie) && !Objects.isNull(compteRecoit)) {
+            this.retraitByNumeroCompte(compteEnvoie, montant);
+            this.depotByNumeroCompte(compteRecoit, montant);
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean viremantBetweenClientByCin(Client clientEnvoie, Client clientRecoit, double montant) {
+        if (!Objects.isNull(clientEnvoie) && !Objects.isNull(clientRecoit)) {
+            this.retraitByCinClient(clientEnvoie, montant);
+            this.depotByCinClient(clientRecoit, montant);
+            return true;
+        }
         return false;
     }
 }
