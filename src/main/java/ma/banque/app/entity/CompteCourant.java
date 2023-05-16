@@ -11,7 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class CompteCourant extends Compte {
-
     @Builder
     public CompteCourant(Integer id, String numeroCompte, double solde, Agence agence, Client client, List<Operation> operations) {
         super(id, numeroCompte, solde, agence, client, operations);

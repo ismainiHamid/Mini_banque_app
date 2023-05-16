@@ -4,12 +4,12 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import ma.banque.app.iservice.IBanque;
 import ma.banque.app.entity.*;
+import ma.banque.app.tools.Halter;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -18,16 +18,15 @@ public class BanqueService implements IBanque {
     private CompteService compteService;
     private OperationService operationService;
     private ClientService clientService;
-    private AgenceService agenceService;
 
     @Override
     public Compte createCompte(Client client, Agence agence) {
         return this.operationService.create(Creation.builder()
-                .code("")
+                .code("CR" + Halter.getOperationCode())
                 .date(new Date())
                 .montant(0)
                 .compte(this.compteService.create(CompteCourant.builder()
-                        .numeroCompte("")
+                        .numeroCompte(Halter.getCompteNumero(client))
                         .solde(0)
                         .agence(agence)
                         .client(this.clientService.create(client))
@@ -55,7 +54,7 @@ public class BanqueService implements IBanque {
             if (!Objects.isNull(compte)) {
                 compte.setSolde(compte.getSolde() + montant);
                 this.operationService.create(Depot.builder()
-                        .code("")
+                        .code("DE" + Halter.getOperationCode())
                         .date(new Date())
                         .montant(montant)
                         .compte(compte)
@@ -75,7 +74,7 @@ public class BanqueService implements IBanque {
             if (!Objects.isNull(compte)) {
                 compte.setSolde(compte.getSolde() + montant);
                 this.operationService.create(Depot.builder()
-                        .code("")
+                        .code("DE" + Halter.getOperationCode())
                         .date(new Date())
                         .montant(montant)
                         .compte(compte)
@@ -95,7 +94,7 @@ public class BanqueService implements IBanque {
                 if (compte.getSolde() >= montant) {
                     compte.setSolde(compte.getSolde() - montant);
                     this.operationService.create(Retrait.builder()
-                            .code("")
+                            .code("RE" + Halter.getOperationCode())
                             .date(new Date())
                             .montant(montant)
                             .compte(compte)
@@ -117,7 +116,7 @@ public class BanqueService implements IBanque {
                 if (compte.getSolde() >= montant) {
                     compte.setSolde(compte.getSolde() - montant);
                     this.operationService.create(Retrait.builder()
-                            .code("")
+                            .code("RE" + Halter.getOperationCode())
                             .date(new Date())
                             .montant(montant)
                             .compte(compte)

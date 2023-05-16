@@ -33,7 +33,6 @@ public class Utilisateur {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "utilisateurs_roles", joinColumns = @JoinColumn(name = "utilisateur_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @JsonIgnore
     private List<Role> roles = new ArrayList<>();
 
 }
