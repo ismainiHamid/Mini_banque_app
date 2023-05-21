@@ -7,7 +7,6 @@ import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import lombok.AllArgsConstructor;
-import ma.banque.app.entity.Utilisateur;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -48,14 +47,14 @@ public class SecurityConfiguration {
    }
 
    @Bean
-   public JwtEncoder jwtEncoder(){
-       JWK jwk = new RSAKey.Builder(rsakeysConfig.publicKey()).privateKey(rsakeysConfig.rsaPrivateKey()).build();
-       JWKSource<SecurityContext> jwkSource = new ImmutableJWKSet<>(new JWKSet(jwk));
-       return new NimbusJwtEncoder(jwkSource);
-   }
-
-   @Bean
    public JwtDecoder jwtDecoder(){
         return NimbusJwtDecoder.withPublicKey(rsakeysConfig.publicKey()).build();
    }
+
+    @Bean
+    public JwtEncoder jwtEncoder(){
+        JWK jwk = new RSAKey.Builder(rsakeysConfig.publicKey()).privateKey(rsakeysConfig.privateKey()).build();
+        JWKSource<SecurityContext> jwkSource = new ImmutableJWKSet<>(new JWKSet(jwk));
+        return new NimbusJwtEncoder(jwkSource);
+    }
 }
