@@ -44,4 +44,9 @@ public class ClientService implements IClient {
     public Client findByCin(String cin) {
         return this.clientRepository.findByCin(cin);
     }
+
+    @Override
+    public Client findById(int id) {
+        return this.clientRepository.findById(id);
+    }
 }

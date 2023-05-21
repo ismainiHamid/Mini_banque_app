@@ -5,7 +5,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class Halter {
     public static String getOperationCode(){
-        return RandomStringUtils.random(10, false, true);
+        return RandomStringUtils.random(6, false, true);
     }
 
     public static String getCompteNumero(Client client){

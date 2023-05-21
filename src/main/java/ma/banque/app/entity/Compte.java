@@ -19,7 +19,7 @@ public class Compte {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 10)
     protected String numeroCompte;
 
     @Column(nullable = false)
